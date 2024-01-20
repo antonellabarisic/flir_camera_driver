@@ -41,7 +41,9 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
       disabled when using Bayer encoding (e.g. BayerRG8)-->
   <arg name="isp_enable"                default="False" /> 
   <arg name="encoding"                  default="BayerRG8" />
-  <arg name="color_balance"             default="Continuous" /> <!-- Off, Once, or Continuous -->
+  <arg name="color_balance"             default="Off" /> <!-- Off, Once, or Continuous -->
+  <arg name="white_balance_blue_ratio"  default="800.0" />
+  <arg name="white_balance_red_ratio"   default="1.5" />
   <!-- Available Encodings:
         Mono:              YUV:              YCbCr:          Other:
         - Mono8            - YUV411Packed    - YCbCr8        - BGR8
@@ -80,6 +82,9 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
       <param name="isp_enable"                      value="$(arg isp_enable)" />
       <param name="auto_white_balance"              value="$(arg color_balance)" />
       <param name="image_format_color_coding"       value="$(arg encoding)" />
+
+      <param name="white_balance_blue_ratio"        value="$(arg white_balance_blue_ratio)" />
+      <param name="white_balance_red_ratio"        value="$(arg white_balance_red_ratio)" />
 
       <!-- Image Resolution -->
       <!-- Height and width pixel size cannot be set directly. Instead use the 
